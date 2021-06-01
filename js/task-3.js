@@ -14,7 +14,7 @@ function operation(id) {
             if (canProcess) {
                 resolve({ id, delay });
             }
-            reject({ id, delay });
+            reject(id);
         }, delay);
     });
 }
@@ -23,7 +23,7 @@ function logSuccess({ id, delay }) {
     console.log(`Transaction ${id} processed in ${delay}ms`);
 }
 
-function logError({ id }) {
+function logError(id) {
     console.warn(`Error processing transaction ${id}. Please try again later.`);
 }
 
